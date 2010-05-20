@@ -1,0 +1,8 @@
+syntax: glob
+*.asv
+*.zip
+*.pdf
+*.log
+*.backup
+*~
+
