@@ -5,6 +5,3 @@ for r=1:N
     E = E + (r-1)*p(r); 
 end
 end
-
-
-
