@@ -14,7 +14,7 @@ im(100,:) = 1; im(:,100) = 1;
 %im(100,:) = 1; im(1:100,100) = 1;
 %% Desing steerable filters
 sigma = 1; order = 4; ndir = 24; theta = 0:pi/ndir:pi-pi/ndir;
-[G,H] = BOSteerableFilters(sigma,theta,order);
+[G,H] = BOSteerableFilters2D(sigma,theta,order);
 %% Orientation analysis using Steerable Filters
 imE = BOSteerableFiltersOrientedEnergy(im,G,H);
 %% Plot image

@@ -1,12 +1,12 @@
 %% Clear ALL
 clc; clear all; close all;
 %% Load image
-im = imread('testimage.tiff');
+im = imread('./images/intersections.tif');
 %% Normalize
 im = double(im); im = (im - min(im(:))) / (max(im(:)) - min(im(:)));
 %% Desing steerable filters
 sigma = 5; order = 4; ndir = 12; theta = 0:pi/ndir:pi-pi/ndir;
-[G,H] = BOSteerableFilters(sigma,theta,order);
+[G,H] = BOSteerableFilters2D(sigma,theta,order);
 %% Orientation analysis using Steerable Filters
 imE = BOSteerableFiltersOrientedEnergy(im,G,H);
 %% Average of oriented energy
