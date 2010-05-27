@@ -1,6 +1,6 @@
 function [K,c] = BOCurvatureEstimationByOsculatingCircle2D(C) 
 %% BOCurvatureEstimationByOsculatingCircle2D - 
-%           curve estimation by osculating circle
+%           curvature estimation by osculating circle
 %   
 %   REFERENCE:
 %       Simon Hermann and Reinhard Klette,

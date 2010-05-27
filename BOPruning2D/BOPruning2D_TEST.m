@@ -2,7 +2,7 @@
 clc; clear all; close all;
 %% Add path
 addpath('../BOHitOrMissE2D/');
-%% Read image
+%% Load image
 im = imread('./images/triple.tif');
 im = im<10;
 %% Skeleton
