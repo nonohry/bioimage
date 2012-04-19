@@ -7,7 +7,7 @@ function [imth,imtmax] = BODolomiteMicrocracksSegmentation2D(ims,ndir,s1,s2)
 %       Identification of transcrystalline microcracks observed in 
 %       microscope images of dolomite structure using image analysis 
 %       methods based on linear structuring element processing,
-%       Computers & Geosciences, 33, 2, 151–158, 2007
+%       Computers & Geosciences, 33, 2, 151-158, 2007
 %
 %   INPUT:
 %       ims     - set of color images 
