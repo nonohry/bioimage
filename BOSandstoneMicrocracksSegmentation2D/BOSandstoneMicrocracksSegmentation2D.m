@@ -1,5 +1,5 @@
 function imsk = BOSandstoneMicrocracksSegmentation2D(im,s1,s2,nr)
-%%  BOSandstoneMicrocracksSegmentation - microcracks segmentation
+%%  BOSandstoneMicrocracksSegmentation2D - microcracks segmentation
 %   
 %   REFERENCE:
 %       Boguslaw Obara and Alena Kozusnikova and Jiri Scucka,

@@ -13,9 +13,9 @@ subplot(1,2,1), imagesc(im);
 colormap gray; set(gca,'ytick',[]); set(gca,'xtick',[]); axis equal; axis tight;
 subplot(1,2,2), imagesc(Vmax);
 colormap gray; set(gca,'ytick',[]); set(gca,'xtick',[]); axis equal; axis tight;
-
+%%
 figure;
 [X,Y] = meshgrid(1:size(im,2),1:size(im,1));
-imagesc(im); hold on; quiver(X,Y,Vy,Vx);
+imagesc(Vmax); hold on; quiver(X,Y,Vmax.*Vy,Vmax.*Vx,'r');
 colormap gray; set(gca,'ytick',[]); set(gca,'xtick',[]); axis equal; axis tight;
-set(gca,'xlim',[200 334]); set(gca,'ylim',[200 334])
+set(gca,'xlim',[250 280]); set(gca,'ylim',[220 250])

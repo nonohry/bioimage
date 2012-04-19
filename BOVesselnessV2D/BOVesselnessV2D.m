@@ -1,10 +1,15 @@
-function [V,Vmax,Vidx,Vx,Vy] = BOVesselnessV2D(im,sigma,gamma,beta,c,wb)
+function [V,Vmax,Vidx,Vx,Vy,L1,L2] = BOVesselnessV2D(im,sigma,gamma,beta,c,wb)
 %%  BOVesselnessV2D - multiscale vessel enhancement filtering + vectors
 %   
 %   REFERENCE:
 %       A.F. Frangi, et al., 
 %       Multiscale Vessel Enhancement Filtering,
 %       Lecture Notes in Computer Science, 1496, 130-137, 1998
+%
+%       B. Obara, , et al., 
+%       Contrast-independent curvilinear structure detection in biomedical 
+%       images, IEEE Transactions on Image Processing 2012, 
+%       doi:10.1109/TIP.2012.2185938 
 %
 %   INPUT:
 %       im      - 2D gray image,
@@ -54,10 +59,19 @@ for i=1:length(sigma)
     Hxx = power(sigma(i),gamma)*Hxx;
     Hxy = power(sigma(i),gamma)*Hxy;
     Hyy = power(sigma(i),gamma)*Hyy;
+%% Filter Hessian    
+%     s = 3;
+%     h = fspecial('gaussian',3*s,s);
+%     Hxx = imfilter(Hxx,h,'same');
+%     Hxy = imfilter(Hxy,h,'same');
+%     Hyy = imfilter(Hyy,h,'same');
 %% Eigen Matrix - values and vectors
     %[L1,L2] = BOEigenMatrix2x2M(Hxx,Hxy,Hxy,Hyy);
+    %[L1,L2,V1,V2,V3,V4] = BOEigenDecompositionMatrix2x2IDX(Hxx,Hxy,Hxy,Hyy);
+    %Vxt(:,:,i) = V3; Vyt(:,:,i) = V4;
     [L1,L2,V1,V2,V3,V4] = BOEigenMatrix2x2M(Hxx,Hxy,Hxy,Hyy);
     Vxt(:,:,i) = V1; Vyt(:,:,i) = V2;
+    %%Vxt(:,:,i) = V3; Vyt(:,:,i) = V4;
     L2(L2==0) = eps;
     Rbeta = L1./L2;
     S = sqrt(L1.^2 + L2.^2);     
